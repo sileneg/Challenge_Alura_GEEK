@@ -8,21 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sileneg/Challenge_Alura_GEEK.git"
+    "url": "https://github.com/sileneg/Challenge_Alura_GEEK.git"
   },
-  "keywords": [
-    "alura",
-    "alurageek",
-    "json-server",
-    "javascript",
-    "API"
-  ],
-  "author": "Silene González",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sileneg/Challenge_Alura_GEEK/issues"
-  },
-  "homepage": "https://github.com/sileneg/Challenge_Alura_GEEK#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "json-server": "^0.17.3"
