@@ -1,0 +1,830 @@
+/* Fondo oscuro para el cuerpo */
+body {
+    background-color: #121212;
+    background-image: url('/image/fondo4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+}
+
+
+/* Header con fondo de imagen, overlay oscuro y efecto de neón oscuro */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-image: url('/image/fondo.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+/* Overlay oscuro sobre la imagen de fondo */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Línea de relieve en la parte inferior del header con efecto de movimiento */
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%; /* Duplica el ancho para permitir el efecto de desplazamiento */
+    height: 3px;
+    background: linear-gradient(90deg, #ff3300, #0066cc, #ff3300);
+    z-index: 2; /* Asegura que esté al frente */
+    opacity: 0.9;
+    animation: correrLinea 3s linear infinite;
+}
+
+/* Contenedor de la línea de relieve para controlar el ancho */
+.header-line-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Mantén la línea dentro del ancho del header */
+    height: 3px;
+    overflow: hidden;
+}
+
+/* Línea de relieve en la parte inferior del header con efecto de movimiento */
+.header-line {
+    width: 200%; /* Duplicado para el efecto de desplazamiento */
+    height: 100%;
+    background: linear-gradient(90deg, #ff3300, #0066cc, #ff3300);
+    animation: correrLinea 3s linear infinite;
+}
+
+/* Animación para el efecto de movimiento */
+@keyframes correrLinea {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.logo-container span {
+     font-family: "Orbitron", sans-serif;
+}
+
+/* Contenedor del logo y título */
+.logo-container {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+/* Estilo de la imagen del logo */
+.logo-img {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Estilo del texto del título con efecto de sombra "neón oscuro" */
+.logo-container span {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo de la navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+    z-index: 1;
+    transform: translateX(-40px); /* Ajusta el valor negativo para moverlo hacia la izquierda */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    font-size: 1.6em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    z-index: 3;
+}
+
+nav ul li a:hover {
+    color: #b0b0b0;
+    transform: scale(1.3);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo del carrusel */
+.carousel {
+    position: relative;
+    width: calc(100% - 20px); /* Añade un margen de 10px a cada lado */
+    height: 500px; /* Ajusta la altura del carrusel según tu preferencia */
+    overflow: hidden;
+    margin: 10px auto; /* Deja un margen superior e inferior y centra el carrusel */
+    border-radius: 10px; /* Opcional: para esquinas redondeadas */
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Muestra la imagen completa ajustada al espacio */
+    padding: 5px; /* Añade un pequeño margen interior para evitar que la imagen se pegue a los bordes */
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+/* Flechas de navegación */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, #ff3300, #0066cc, #ff3300);
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%; /* Hace que el fondo sea circular */
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control:hover {
+    transform: scale(1.4);
+    background: linear-gradient(90deg, #0066cc, #ff3300);
+}
+
+.carousel-control.prev {
+    left: 20px;
+}
+
+.carousel-control.next {
+    right: 20px;
+}
+
+/* Estilo del contenido en el banner */
+.banner-content {
+    position: absolute;
+    top: 50%; /* Ajusta el título y el botón más arriba */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Estilo para el título */
+.banner-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Sección de productos */
+.productos-section {
+    position: relative; /* Necesario para posicionar los pseudoelementos */
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a; /* Fondo gris oscuro */
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px 10px rgba(255, 51, 0, 0.7), 0px 0px 20px rgba(0, 102, 204, 0.5);
+    color: #fff;
+    margin: 40px auto; /* Centrar la sección y evitar que toque los lados */
+    max-width: 80%; /* Asegura que la sección tenga espacio en los bordes */
+    overflow: hidden; /* Evita que los bordes animados sobresalgan */
+}
+
+/* Animación de bordes para "Mis Productos" */
+.productos-section::before,
+.productos-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 200%; /* Duplica el ancho para el movimiento continuo */
+    height: 3px;
+    background: linear-gradient(90deg, #ff3300, #0066cc, #ff3300);
+    z-index: 2;
+    animation: correrLinea 3s linear infinite;
+}
+
+.productos-section::before {
+    top: 0; /* Borde superior */
+}
+
+.productos-section::after {
+    bottom: 0; /* Borde inferior */
+}
+
+/* Mantiene la animación para los bordes */
+@keyframes correrLinea {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Título de la sección */
+.productos-section h1 {
+    font-size: 2.5em; /* Título más visible */
+    font-family: "Orbitron", sans-serif; /* Fuente consistente */
+    font-weight: bold;
+    color: #ffffff; /* Color destacado */
+    text-shadow: 2px 2px 5px rgba(0, 102, 204, 0.5); /* Sombra para mayor visibilidad */
+    margin-bottom: 50px;
+}
+
+/* Estilo del grid */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    grid-template-rows: repeat(2, auto); /* 2 filas */
+    gap: 80px; /* Espaciado entre las tarjetas */
+    max-width: 1300px; /* Controla el ancho total del grid */
+    margin: 0 auto; /* Centra el grid dentro de la sección */
+}
+
+/* Tarjetas de productos */
+.card {
+    background-color: #000; /* Fondo oscuro */
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 5px 5px 15px 20px rgba(0, 102, 204, 0.5), 0px 0px 20px rgba(255, 51, 0, 0.7); /* Sombra de alto relieve */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    animation: bordeAnimado 3s linear infinite; /* Animación de sombra */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que todo el contenido esté distribuido */
+    align-items: center;
+    height: 500px; /* Fija la altura de las tarjetas */
+    width: 100%; /* Asegura que las tarjetas se adapten al espacio */
+}
+
+/* Imagen dentro de las tarjetas */
+.card img {
+    width: 100%;
+    height: 180px; /* Fija la altura máxima para todas las imágenes */
+    object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin ser recortada */
+    border-radius: 8px;
+    margin-bottom: 1px;
+}
+
+/* Contenedor de información */
+.card-container--info {
+    text-align: center;
+    margin-top: 1px; /* Espaciado entre la imagen y el texto */
+}
+
+/* Títulos dentro de las tarjetas */
+.card-container--info h3 {
+    font-size: 1.6em; /* Títulos dentro de las tarjetas */
+    font-family: "Orbitron", sans-serif; /* Fuente consistente */
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1px;
+}
+.card-container--info p {
+    font-size: 1.2em; /* Texto ajustado para mayor legibilidad */
+    font-family: "Orbitron", sans-serif; /* Fuente consistente */
+    font-weight: bold;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+/* Hover en las tarjetas */
+.card:hover {
+    transform: scale(1.1); /* Efecto de zoom */
+    box-shadow: 0px 8px 25px rgba(0, 102, 204, 0.7), 0px 0px 30px rgba(255, 51, 0, 0.5);
+}
+
+/* Iconos de acción */
+.card .iconos {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaciado entre los íconos */
+    margin-top: auto; /* Empuja los íconos al final de la tarjeta */
+}
+
+.card .iconos i {
+    font-size: 1.5em; /* Ajusta el tamaño de los íconos */
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.card .iconos i:hover {
+    transform: scale(1.2);
+    color: #ff3300;
+    box-shadow: 0px 4px 10px rgba(0, 102, 204, 0.7), 0px 0px 15px rgba(255, 51, 0, 0.5);
+}
+
+/* Botones de paginación */
+.pagination .page-control {
+    background: linear-gradient(90deg, #0066cc, #ff3300);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 102, 204, 0.6), 0px 0px 10px rgba(255, 51, 0, 0.4);
+}
+
+.pagination .page-control:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #ff3300, #0066cc);
+}
+
+.pagination {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Animación para el borde del modal y tarjetas */
+@keyframes bordeAnimado {
+    0% {
+        box-shadow: 0px 0px 15px 5px rgba(255, 51, 0, 0.7), 0px 0px 20px rgba(0, 102, 204, 0.5);
+    }
+    50% {
+        box-shadow: 0px 0px 20px 7px rgba(0, 102, 204, 0.7), 0px 0px 25px rgba(255, 51, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0px 0px 15px 5px rgba(255, 51, 0, 0.7), 0px 0px 20px rgba(0, 102, 204, 0.5);
+    }
+}
+
+.no-productos {
+    display: none;
+    font-size: 1.2em;
+    color: #ccc;
+    font-style: italic;
+}
+
+/* Estilo del botón Ver Ofertas */
+.btn-oferta {
+    padding: 10px 30px;
+    background: linear-gradient(90deg, #ff3300, #0066cc);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0px 8px 15px rgba(0, 102, 204, 0.7), 0px 0px 15px rgba(255, 51, 0, 0.5);
+}
+
+.btn-oferta:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #0066cc, #ff3300);
+}
+
+/* Estilo para la sección de buscador */
+.buscador {
+    text-align: center;
+    margin: 30px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buscador h3 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Contenedor para el input y botón, con espacio entre ellos */
+.buscador-input {
+    display: flex;
+    gap: 20px; /* Aumentar la separación entre el input y el botón */
+    font-family: 'Orbitron', sans-serif;
+    align-items: center;
+    background: #000;
+    padding: 20px; /* Incrementar el padding para agrandar el área */
+    border-radius: 8px;
+    box-shadow: 4px 12px 15px rgba(147, 8, 8, 0.3), 0px 0px 10px rgba(0, 102, 204, 0.5);
+    position: relative;
+}
+
+/* Estilos para el input */
+.buscador-input input[type="text"] {
+    padding: 15px 15px 15px 50px; /* Incrementar el padding */
+    width: 400px; /* Aumentar el ancho del campo de entrada */
+    font-size: 1.2em; /* Incrementar el tamaño de fuente */
+    border: none;
+    border-radius: 6px;
+    box-shadow: inset 4px 12px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Icono de búsqueda en el input */
+.buscador-input::before {
+    content: "🔍"; /* Icono de búsqueda */
+    position: absolute;
+    top: 50%;
+    left: 25px; /* Ajustar para más espacio */
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1.5em; /* Incrementar el tamaño del icono */
+}
+
+/* Estilo del botón Buscar */
+.buscador-input button {
+    padding: 15px 30px; /* Aumentar el padding */
+    font-size: 1.2em; /* Incrementar el tamaño de fuente */
+    background: linear-gradient(90deg, #ff3300, #0066cc);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px; /* Incrementar el redondeo de las esquinas */
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 102, 204, 0.6), 0px 0px 10px rgba(255, 51, 0, 0.4);
+}
+
+.buscador-input button:hover {
+    transform: scale(1.15); /* Aumentar ligeramente el tamaño en hover */
+    background: linear-gradient(90deg, #0066cc, #ff3300);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro con transparencia */
+    z-index: 50; /* Coloca el overlay debajo del modal */
+    display: none; /* Oculto inicialmente */
+}
+
+/* Modal ajustado  */
+.modal {
+    display: none; /* Oculto inicialmente */
+    position: absolute;
+    top: 30%; /* Cambia el valor a un porcentaje más alto para que baje */
+    left: 50%;
+    transform: translate(-50%, -30%); /* Centra solo horizontalmente */
+    background-color: #000; /* Fondo negro */
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    font-family: "Orbitron", sans-serif;
+    z-index: 100; /* Asegura que el modal esté encima del overlay */
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 5px 5px 20px 15px rgba(255, 51, 0, 0.7), 0px 0px 20px rgba(0, 102, 204, 0.5);
+    animation: bordeAnimado 3s linear infinite; /* Agrega animación de borde */
+    text-align: center;
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+/* Animación para el borde del modal */
+@keyframes bordeAnimado {
+    0% {
+        box-shadow: 0px 0px 15px 5px rgba(255, 51, 0, 0.7), 0px 0px 20px rgba(0, 102, 204, 0.5);
+    }
+    50% {
+        box-shadow: 0px 0px 20px 7px rgba(0, 102, 204, 0.7), 0px 0px 25px rgba(255, 51, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0px 0px 15px 5px rgba(255, 51, 0, 0.7), 0px 0px 20px rgba(0, 102, 204, 0.5);
+    }
+}
+
+#formularioProducto {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    font-family: "Orbitron", sans-serif;
+    background-color: #000; /* Fondo negro */
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    z-index: 1000;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0px 5px 9px rgba(0, 102, 204, 0.5), 0px 0px 20px rgba(255, 51, 0, 0.7);
+    text-align: center;
+    overflow: hidden; /* Oculta el desbordamiento */
+    opacity: 1;
+    transition: none !important;
+
+}
+
+/* Cabecera del formulario */
+.form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: move;
+}
+
+.logo-small {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el título */
+.modal h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+/* Estilos de los inputs y textarea */
+.form-group {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 85%;
+    max-width: 360px;
+    padding: 10px;
+    padding-left: 40px; /* Espacio para el icono */
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: inset 0px 1px 5px rgba(0, 102, 204, 0.5);
+}
+
+/* Placeholder y color del ícono */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #bbb;
+}
+
+/* Iconos específicos para cada campo */
+.form-group#nombre-group::before {
+    content: "🛒"; /* Icono para el nombre del producto */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.form-group#precio-group::before {
+    content: "💲"; /* Icono para el precio */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.form-group#descripcion-group::before {
+    content: "📄"; /* Icono para la descripción */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.form-group#imagen-url-group::before {
+    content: "🌐"; /* Icono para la URL de la imagen */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.form-group#imagen-file-group::before {
+    content: "📷"; /* Icono para el archivo de imagen */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+/* Estilo de los botones */
+.button-group {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    gap: 20px;
+}
+
+.button-group button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #0066cc, #ff3300);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-group button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #ff3300, #0066cc);
+    box-shadow: 0px 4px 10px rgba(0, 102, 204, 0.7), 0px 0px 15px rgba(255, 51, 0, 0.5);
+}
+
+.btn-actualizar {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #0066cc, #ff3300);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-actualizar:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #ff3300, #0066cc);
+    box-shadow: 0px 4px 10px rgba(0, 102, 204, 0.7), 0px 0px 15px rgba(255, 51, 0, 0.5);
+}
+
+/* Botón cerrar en rojo */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff3300; /* Color rojo */
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #0066cc; /* Rojo más oscuro en hover */
+    transform: scale(1.2);
+}
+
+.mensaje-confirmacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 1; /* Mantener visible */
+    transition: opacity 0.5s ease-out;
+}
+ /* Estilo flecha arriba */
+.scroll-up {
+    position: fixed;
+    bottom: 30px; /* Ajusta la distancia desde el borde inferior */
+    right: 30px; /* Ajusta la distancia desde el borde derecho */
+    background: linear-gradient(90deg, #ff3300, #0066cc);
+    color: #fff;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 1.6em;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6), 0px 0px 10px rgba(255, 51, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: none; /* Oculto inicialmente */
+    z-index: 999;
+}
+
+.scroll-up:hover {
+    transform: scale(1.6); /* Agranda la flecha al pasar el cursor */
+    background: linear-gradient(90deg, #0066cc, #ff3300);
+}
+
+
+/* Estilo del Footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-image: url('/image/fondo.avif'); /* Fondo igual al header */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    text-align: center;
+}
+
+/* Overlay oscuro sobre la imagen de fondo */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Oscurece el fondo */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Línea de relieve en la parte superior del footer con efecto de movimiento */
+footer::after {
+    content: '';
+    position: absolute;
+    top: 0; /* Línea en la parte superior */
+    left: 0;
+    width: 200%; /* Duplica el ancho para el movimiento continuo */
+    height: 3px;
+    background: linear-gradient(90deg, #ff3300, #0066cc, #ff3300);
+    z-index: 2; /* Asegura que esté al frente */
+    opacity: 0.9;
+    animation: correrLinea 3s linear infinite;
+}
+
+/* Imagen del logo */
+footer img {
+    width: 100px; /* Tamaño reducido */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Estilo de los textos */
+footer p {
+    font-size: 1.5em; /* Tamaño de texto ajustado */
+    font-family: "Orbitron", sans-serif; /* Fuente consistente */
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    margin: 5px 0;
+}
+
+/* Animación para el efecto de movimiento */
+@keyframes correrLinea {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
