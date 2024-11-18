@@ -1,0 +1,16 @@
+# Ignorar node_modules
+node_modules/
+
+# Ignorar entornos locales
+.env
+
+# Ignorar carpetas de Vercel
+.vercel
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales del editor de texto
+*.log
+.vscode/
