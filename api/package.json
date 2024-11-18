@@ -2,7 +2,7 @@
   "name": "challenge-alura-geek",
   "version": "1.0.0",
   "description": "API JSON para productos del proyecto Challenge Alura Geek",
-  "main": "server.js",
+  "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js"
   },
