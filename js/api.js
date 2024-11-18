@@ -1,4 +1,4 @@
-const apiURL = "https://challenge-alura-geek.vercel.app/api/productos";
+const apiURL = "https://challenge-alura-geek-c7h8.vercel.app/productos";
 
 // Método GET: Obtener todos los productos
 export async function obtenerProductos() {
