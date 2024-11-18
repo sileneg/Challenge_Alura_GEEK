@@ -1,31 +1,30 @@
 {
-  "name": "alurageek-api",
+  "name": "challenge-alura-geek",
   "version": "1.0.0",
-  "description": "Products for Alura Geek fake store api",
-  "main": "index.js",
+  "description": "API JSON para productos del proyecto Challenge Alura Geek",
+  "main": "server.js",
   "scripts": {
-      "start": "node api/server.js"
+    "start": "node api/server.js"
   },
   "repository": {
-      "type": "git",
-      "url": "git+ssh://git@github.com/SofiDevO/alurageek-API.git"
+    "type": "git",
+    "url": "git+https://github.com/sileneg/Challenge_Alura_GEEK.git"
   },
   "keywords": [
-      "alura",
-      "alurageek",
-      "json-server",
-      "javascript",
-      "API"
+    "alura",
+    "alurageek",
+    "json-server",
+    "javascript",
+    "API"
   ],
-  "author": "Sofidev, contact@itssofi.dev",
+  "author": "Silene González",
   "license": "MIT",
   "bugs": {
-      "url": "https://github.com/SofiDevO/alurageek-API/issues"
+    "url": "https://github.com/sileneg/Challenge_Alura_GEEK/issues"
   },
-  "homepage": "https://github.com/SofiDevO/alurageek-API#readme",
+  "homepage": "https://github.com/sileneg/Challenge_Alura_GEEK#readme",
   "dependencies": {
-      "cors": "^2.8.5",
-      "json-serve": "^0.1.0",
-      "json-server": "^0.17.3"
+    "cors": "^2.8.5",
+    "json-server": "^0.17.3"
   }
 }
